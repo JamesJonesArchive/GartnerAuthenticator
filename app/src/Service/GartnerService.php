@@ -70,10 +70,28 @@ class GartnerService implements \USF\IdM\AuthTransfer\AuthTransferServiceInterfa
         if (isset($paramMap['other'])) {
             $gartnerParams['other'] = $paramMap['other'];
         }
-
-
-        // \http_build_query();
+        // Build a hex parameter with the existing gartnerParams and sharedSecret
+        $gartnerParams['md5'] = \bin2hex(\md5(\implode('&', [
+            \http_build_query($gartnerParams),
+            $this->settings['gartner']['sharedSecret']
+        ]),true));
+        // Return a URL as a string mashing all this together
+        return \implode('/',[
+            "https://".\trim($this->settings['gartner']['host'],'/'),
+            \trim($this->settings['gartner']['path'],'/'),
+            "?".\http_build_query(\call_user_func_array(function($p) use ($paramMap) {
+                if (isset($paramMap['resId'])) {
+                    $p['resId'] = $paramMap['resId'];
+                }
+                if (isset($paramMap['docCode'])) {
+                    $p['docCode'] = $paramMap['docCode'];
+                }
+                return $p;
+            }, [[
+                "msg" => \base64_encode(\http_build_query($gartnerParams)),
+                "comp" => $this->settings['gartner']['shortName']
+            ]]))
+        ]);
     }
 
-//put your code here
 }
