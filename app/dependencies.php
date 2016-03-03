@@ -53,8 +53,8 @@ $container['logger'] = function ($c) use ($settings) {
  * views.  View routes.php to see how these classes are mapped to URLs
  */
 
-$container['myService'] =  function ($c) {
-    return new \USF\IdM\SlimSkeleton\Service\ExampleService($c->logger, $c->settings);
+$container['gartner'] =  function ($c) {
+    return new \USF\IdM\AuthTransfer\Gartner\Service\GartnerService($c->logger, $c->settings);
 };
 
 /**
@@ -70,11 +70,11 @@ $container['myService'] =  function ($c) {
  */
 
 // Application Home Page
-$container['SlimSkeleton\Action\HomeAction'] = function ($c) {
-    return new \USF\IdM\SlimSkeleton\Action\HomeAction($c->view, $c->logger, $c->settings);
+$container['AuthTransfer\Gartner\Action\HomeAction'] = function ($c) {
+    return new \USF\IdM\AuthTransfer\Gartner\Action\HomeAction($c->view, $c->logger, $c->settings);
 };
 
 //// Example Controller with a Service
-$container['SlimSkeleton\Action\ExampleAction'] = function ($c) {
-    return new \USF\IdM\SlimSkeleton\Action\ExampleAction($c->view, $c->logger, $c->settings, $c->myService);
+$container['AuthTransfer\Gartner\Action\GartnerAction'] = function ($c) {
+    return new \USF\IdM\AuthTransfer\Gartner\Action\GartnerAction($c->view, $c->logger, $c->settings, $c->gartner);
 };

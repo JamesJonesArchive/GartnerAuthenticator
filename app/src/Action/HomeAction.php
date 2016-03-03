@@ -1,6 +1,6 @@
 <?php
 
-namespace USF\IdM\SlimSkeleton\Action;
+namespace USF\IdM\AuthTransfer\Gartner\Action;
 
 use Slim\Views\Twig;
 use Slim\Collection;
@@ -60,7 +60,7 @@ final class HomeAction
          */
 
         $view_attr = [
-            'page_title' => 'SlimSkeleton | Main'  // This will used in the <title> element on the page
+            'page_title' => 'Gartner | Main'  // This will used in the <title> element on the page
         ];
 
         return $this->view->render($response, 'home.html', $view_attr);

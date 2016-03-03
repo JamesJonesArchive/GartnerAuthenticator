@@ -8,7 +8,7 @@
  * @license http://www.opensource.org/licenses/MIT MIT
  * @link https://github.com/USF-IT/slim-skeleton
  */
-namespace USF\IdM\SlimSkeleton\Service;
+namespace USF\IdM\AuthTransfer\Gartner\Service;
 
 use Psr\Log\LoggerInterface;
 use Slim\Collection;

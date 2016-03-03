@@ -1,7 +1,7 @@
 <?php
 
 
-namespace USF\IdM\SlimSkeleton\Action;
+namespace USF\IdM\AuthTransfer\Gartner\Action;
 
 class ExampleActionTest extends \PHPUnit_Framework_TestCase
 {
@@ -40,72 +40,72 @@ class ExampleActionTest extends \PHPUnit_Framework_TestCase
         return new \Slim\Http\Request($method, $uri, $headers, $cookies, $serverParams, $body);
     }
 
-    /**
-     * @vcr requestExample1-vcr.yml
-     **/
+//    /**
+//     * @vcr requestExample1-vcr.yml
+//     **/
     public function testExampleAction()
     {
-        // This is how you mock CAS authentication and attributes
-        $extra_request_params = [
-            'QUERY_STRING' => '',
-            'HTTP_AUTH_PRINCIPAL' => 'test',
-            'HTTP_AUTH_ATTR_EDUPERSONPRIMARYAFFILIATION' => 'Student'
-        ];
-
-        $req = $this->setRequest('GET', '/example', $extra_request_params);
-        $res = new \Slim\Http\Response;
-
-        // Invoke app
-        $app = $this->app;
-        $resOut = $app($req, $res);
-        $this->assertInstanceOf('\Psr\Http\Message\ResponseInterface', $resOut);
-        $this->assertContains('<title>SlimSkeleton | Example</title>', (string) $res->getBody());
-        $this->assertContains('<h1>Album 1</h1>', (string) $res->getBody());
+//        // This is how you mock CAS authentication and attributes
+//        $extra_request_params = [
+//            'QUERY_STRING' => '',
+//            'HTTP_AUTH_PRINCIPAL' => 'test',
+//            'HTTP_AUTH_ATTR_EDUPERSONPRIMARYAFFILIATION' => 'Student'
+//        ];
+//
+//        $req = $this->setRequest('GET', '/example', $extra_request_params);
+//        $res = new \Slim\Http\Response;
+//
+//        // Invoke app
+//        $app = $this->app;
+//        $resOut = $app($req, $res);
+//        $this->assertInstanceOf('\Psr\Http\Message\ResponseInterface', $resOut);
+//        $this->assertContains('<title>SlimSkeleton | Example</title>', (string) $res->getBody());
+//        $this->assertContains('<h1>Album 1</h1>', (string) $res->getBody());
     }
 
-    /**
-     * @vcr requestExample2-vcr.yml
-     **/
-    public function testExampleActionRouteParam()
-    {
-        // This is how you mock CAS authentication and attributes
-        $extra_request_params = [
-            'QUERY_STRING' => '',
-            'HTTP_AUTH_PRINCIPAL' => 'test',
-            'HTTP_AUTH_ATTR_EDUPERSONPRIMARYAFFILIATION' => 'Student'
-        ];
+//    /**
+//     * @vcr requestExample2-vcr.yml
+//     **/
+//    public function testExampleActionRouteParam()
+//    {
+//        // This is how you mock CAS authentication and attributes
+//        $extra_request_params = [
+//            'QUERY_STRING' => '',
+//            'HTTP_AUTH_PRINCIPAL' => 'test',
+//            'HTTP_AUTH_ATTR_EDUPERSONPRIMARYAFFILIATION' => 'Student'
+//        ];
+//
+//        $req = $this->setRequest('GET', '/example/50', $extra_request_params);
+//        $res = new \Slim\Http\Response;
+//
+//        // Invoke app
+//        $app = $this->app;
+//        $resOut = $app($req, $res);
+//        $this->assertInstanceOf('\Psr\Http\Message\ResponseInterface', $resOut);
+//        $this->assertContains('<title>SlimSkeleton | Example</title>', (string) $res->getBody());
+//        $this->assertContains('<h1>Album 50</h1>', (string) $res->getBody());
+//    }
 
-        $req = $this->setRequest('GET', '/example/50', $extra_request_params);
-        $res = new \Slim\Http\Response;
-
-        // Invoke app
-        $app = $this->app;
-        $resOut = $app($req, $res);
-        $this->assertInstanceOf('\Psr\Http\Message\ResponseInterface', $resOut);
-        $this->assertContains('<title>SlimSkeleton | Example</title>', (string) $res->getBody());
-        $this->assertContains('<h1>Album 50</h1>', (string) $res->getBody());
-    }
-
-    /**
-     * @vcr requestExample3-vcr.yml
-     **/
-    public function testExampleActionQueryParam()
-    {
-        // This is how you mock CAS authentication and attributes
-        $extra_request_params = [
-            'QUERY_STRING' => 'album=25',
-            'HTTP_AUTH_PRINCIPAL' => 'test',
-            'HTTP_AUTH_ATTR_EDUPERSONPRIMARYAFFILIATION' => 'Student'
-        ];
-
-        $req = $this->setRequest('GET', '/example', $extra_request_params);
-        $res = new \Slim\Http\Response;
-
-        // Invoke app
-        $app = $this->app;
-        $resOut = $app($req, $res);
-        $this->assertInstanceOf('\Psr\Http\Message\ResponseInterface', $resOut);
-        $this->assertContains('<title>SlimSkeleton | Example</title>', (string) $res->getBody());
-        $this->assertContains('<h1>Album 25</h1>', (string) $res->getBody());
-    }
+//    /**
+//     * @vcr requestExample3-vcr.yml
+//     **/
+//    public function testExampleActionQueryParam()
+//    {
+//        // This is how you mock CAS authentication and attributes
+//        $extra_request_params = [
+//            'QUERY_STRING' => 'album=25',
+//            'HTTP_AUTH_PRINCIPAL' => 'test',
+//            'HTTP_AUTH_ATTR_EDUPERSONPRIMARYAFFILIATION' => 'Student'
+//        ];
+//
+//        $req = $this->setRequest('GET', '/example', $extra_request_params);
+//        $res = new \Slim\Http\Response;
+//
+//        // Invoke app
+//        $app = $this->app;
+//        $resOut = $app($req, $res);
+//        $this->assertInstanceOf('\Psr\Http\Message\ResponseInterface', $resOut);
+//        $this->assertContains('<title>SlimSkeleton | Example</title>', (string) $res->getBody());
+//        $this->assertContains('<h1>Album 25</h1>', (string) $res->getBody());
+//    }
 }

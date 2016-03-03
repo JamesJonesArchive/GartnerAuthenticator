@@ -18,12 +18,15 @@
 
 namespace USF\IdM\AuthTransfer\Gartner\Action;
 
-class HomeActionTest extends \PHPUnit_Framework_TestCase
-{
+/**
+ * Description of GartnerActionTest
+ *
+ * @author James Jones <james@mail.usf.edu>
+ */
+class GartnerActionTest  extends \PHPUnit_Framework_TestCase {
     private $app;
 
-    public function setup()
-    {
+    public function setup() {
 
         $config = new \USF\IdM\UsfConfig(__DIR__ . '/config');
 
@@ -36,26 +39,25 @@ class HomeActionTest extends \PHPUnit_Framework_TestCase
         include __DIR__ . '/../app/routes.php';
         $this->app = $app;
     }
-
-    public function setRequest($method = 'GET', $uri = '/', $other = [])
-    {
+    
+    public function setRequest($method = 'GET', $uri = '/', $other = []) {
         // Prepare request and response objects
         $base = [
             'SCRIPT_NAME' => '/index.php',
             'REQUEST_URI' => $uri,
             'REQUEST_METHOD' => $method
         ];
+
         $env = \Slim\Http\Environment::mock(array_merge($base, $other));
         $uri = \Slim\Http\Uri::createFromEnvironment($env);
         $headers = \Slim\Http\Headers::createFromEnvironment($env);
         $cookies = (array)new \Slim\Collection();
         $serverParams = (array)new \Slim\Collection($env->all());
         $body = new \Slim\Http\Body(fopen('php://temp', 'r+'));
-        return new \Slim\Http\Request('GET', $uri, $headers, $cookies, $serverParams, $body);
+        return new \Slim\Http\Request($method, $uri, $headers, $cookies, $serverParams, $body);
     }
-
-    public function testHomeAction()
-    {
+    
+    public function testGartnerAction() {
         $req = $this->setRequest('GET', '/');
         $res = new \Slim\Http\Response;
 
@@ -65,5 +67,27 @@ class HomeActionTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\Psr\Http\Message\ResponseInterface', $resOut);
         $this->assertContains('<title>Gartner | Main</title>', (string) $res->getBody());
     }
-
+    
+//    /**
+//     * @vcr requestExample1-vcr.yml
+//     **/
+//    public function testGartnerAction2()
+//    {
+//        // This is how you mock CAS authentication and attributes
+//        $extra_request_params = [
+//            'QUERY_STRING' => '',
+//            'HTTP_AUTH_PRINCIPAL' => 'test',
+//            'HTTP_AUTH_ATTR_EDUPERSONPRIMARYAFFILIATION' => 'Student'
+//        ];
+//
+//        $req = $this->setRequest('GET', '/gartner', $extra_request_params);
+//        $res = new \Slim\Http\Response;
+//
+//        // Invoke app
+//        $app = $this->app;
+//        $resOut = $app($req, $res);
+//        $this->assertInstanceOf('\Psr\Http\Message\ResponseInterface', $resOut);
+//        $this->assertContains('<title>Gartner | Example</title>', (string) $res->getBody());
+//        // $this->assertContains('<h1>Album 1</h1>', (string) $res->getBody());
+//    }
 }

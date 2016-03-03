@@ -6,7 +6,10 @@
  * and open the template in the editor.
  */
 
-namespace USF\IdM\SlimSkeleton\Service;
+namespace USF\IdM\AuthTransfer\Gartner\Service;
+
+use Slim\Collection;
+use Psr\Log\LoggerInterface;
 
 /**
  * Description of GartnerService

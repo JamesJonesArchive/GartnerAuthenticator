@@ -36,7 +36,7 @@
     },
     "autoload": {
         "psr-4": {
-            "USF\\IdM\\SlimSkeleton\\": "app/src/"
+            "USF\\IdM\\AuthTransfer\\Gartner\\": "app/src/"            
         }
     }
 }

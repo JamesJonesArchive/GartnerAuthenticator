@@ -8,7 +8,7 @@ use Psr\Log\LoggerInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
-use USF\IdM\SlimSkeleton\Service\ExampleService;
+use USF\IdM\AuthTransfer\Gartner\Service\ExampleService;
 
 /**
  * Example Controller
