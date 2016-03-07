@@ -23,7 +23,7 @@ class GartnerService implements \USF\IdM\AuthTransfer\AuthTransferServiceInterfa
         $this->settings = $settings;
 
         // Pull config data from the settings object
-        $serviceConfig = $settings['example_config'];
+        // $serviceConfig = $settings['example_config'];
 
         // If you need to configure your service object, do it here and  add it as a
         // private property to the class.

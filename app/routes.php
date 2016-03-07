@@ -17,5 +17,7 @@ $app->get('/', 'AuthTransfer\Gartner\Action\HomeAction:dispatch')
 // If you need to use POST or PUT you can config the route like this.
 //$app->post('/example', 'SlimSkeleton\Action\ExampleAction:runThisMethod')
 //    ->setName('examplePOST');
-$app->get('/{application}[/{instance}]', 'AuthTransfer\Gartner\Action\GartnerAction:dispatch')
-    ->setName('self_service');
+
+// Gartner handling
+$app->get('/gartner', 'AuthTransfer\Gartner\Action\GartnerAction:dispatch')
+    ->setName('gartner');
