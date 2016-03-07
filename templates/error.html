@@ -1,0 +1,10 @@
+{% include 'include/header.html' %}
+
+<h1 class="page-header">{{statusText}}</h1>
+<p class="lead">{{message|raw}}</p>
+{% if file %}
+<strong>File: </strong> {{file}}
+{% endif %}
+<br /><br />
+
+{% include 'include/footer.html' %}
