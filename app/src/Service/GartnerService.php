@@ -80,7 +80,7 @@ class GartnerService implements \USF\IdM\AuthTransfer\AuthTransferServiceInterfa
         ]),true));
         // Return a URL as a string mashing all this together
         return \implode('/',[
-            "https://".\trim($this->settings['gartner']['host'],'/'),
+            \implode('://', [ ($this->settings['gartner']['scheme'] ?? 'https'), \trim($this->settings['gartner']['host'],'/')]),
             \trim($this->settings['gartner']['path'],'/'),
             "?".\http_build_query(\call_user_func_array(function($p) use ($paramMap) {
                 if (isset($paramMap['resId'])) {
