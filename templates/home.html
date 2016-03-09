@@ -1,22 +1,11 @@
 {% include 'include/header.html' %}
-      
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h1 class="panel-title"><img src="assets/images/gartner.png" /> Gartner Authentication Transfer</h1>
-            </div>
-            <div class="panel-body">
-                <p>
-                    Gartner, a leading global information technology research organization, and USF have teamed up to provide the university system with access to a wide variety of core research information for all students, faculty, and staff.
-                </p>
-                <p>
-                    This service extends the USF NetID Single-SignOn service to integrate with services that do not natively support <a href="http://www.jasig.org/cas">Jasig CAS</a> or <a href="http://www.shibboleth.net">Shibboleth</a>
-                </p>
-                <p>
-                    <button type="button" class="btn btn-lg btn-primary" onclick="location.href='gartner'">Login with NetID</button>
-                </p>
-            </div>
-        </div>
-
-
-
+<div class="row xtra_vert_space">
+    <div class="col-md-1 hidden-xs">
+        <image src="{{ base_url() }}/assets/images/gartner.png" />
+    </div>
+    <div class="col-md-10 service-desc">
+        <h4 class="module-subhead"><a href="{{ base_url() }}/gartner">Gartner Login  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></h4>
+        Gartner, a leading global information technology research organization, and USF have teamed up to provide the university system with access to a wide variety of core research information for all students, faculty, and staff.
+    </div>
+</div>
 {% include 'include/footer.html' %}
