@@ -3,7 +3,7 @@ slimSettings:
     gartner:
         enabled: true
         shortName: SouthFlorida
-        sharedSecret: string
+        sharedSecret: 6uswUWraswu7abrEq4xe2Re4huyu8ek
         messageFormat: uid
         allowedEppaList: ['Student','Staff','Faculty']
         scheme: https

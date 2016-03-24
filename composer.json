@@ -23,9 +23,8 @@
         "slim/slim": "3.*",
         "slim/twig-view": "2.*",
         "usf-it/usf-auth": "^0.6.0",
-        "usf-it/usf-idm-common": "^0.5.0",
-        "akrabat/rka-ip-address-middleware": "^0.4.0",
-        "usf-it/auth-transfer-lib": "dev-master"
+        "usf-it/usf-idm-common": "dev-develop",
+        "akrabat/rka-ip-address-middleware": "^0.4.0"
     },
     "require-dev": {
         "phpunit/phpunit": "@stable",
