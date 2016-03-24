@@ -83,10 +83,10 @@ class GartnerService implements \USF\IdM\AuthTransfer\AuthTransferServiceInterfa
             \implode('://', [ ($this->settings['gartner']['scheme'] ?? 'https'), \trim($this->settings['gartner']['host'],'/')]),
             \trim($this->settings['gartner']['path'],'/').
             "?".\http_build_query(\call_user_func_array(function($p) use ($paramMap) {
-                if (isset($paramMap['resId'])) {
+                if (isset($paramMap['resId'])?!empty($paramMap['resId']):FALSE) {
                     $p['resId'] = $paramMap['resId'];
                 }
-                if (isset($paramMap['docCode'])) {
+                if (isset($paramMap['docCode'])?!empty($paramMap['docCode']):FALSE) {
                     $p['docCode'] = $paramMap['docCode'];
                 }
                 return $p;
